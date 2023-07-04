@@ -126,3 +126,34 @@ tabler_navbar <- function(..., brand_url = NULL, brand_image = NULL, nav_menu, n
 tabler_navbar_menu <- function(..., inputId = NULL) {
   tags$ul(id = inputId, class = "nav nav-pills navbar-nav", ...)
 }
+
+#' Create a tabler navbar menu item
+#'
+#' This item is used to navigate. Must match with the
+#' \link{tabler_tab_item} function.
+#'
+#' @param text Item title.
+#' @param tabName Unique tab name. Must exactly match with the
+#' tabName parameter of \link{tabler_tab_item} on the body side.
+#' @param icon Item icon.
+#' @param selected Whether to select the current item at start.
+#'
+#' @return A Tabler navigation item tag.
+#' @export
+tabler_navbar_menu_item <- function(text, tabName, icon = NULL, selected = FALSE) {
+  item_cl <- paste0("nav-link", if (selected) " active")
+
+  tags$li(
+    class = "nav-item",
+    a(
+      class = item_cl,
+      `data-toggle` = "pill", # see https://getbootstrap.com/docs/4.0/components/navs/
+      `data-target` = paste0("#", tabName),
+      `data-value` = tabName,
+      href = "#",
+      role = "tab",
+      span(class = "nav-link-icon d-md-none d-lg-inline-block", icon),
+      span(class = "nav-link-title", text)
+    )
+  )
+}
