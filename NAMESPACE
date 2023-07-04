@@ -3,6 +3,7 @@
 export("%>%")
 export(add_tabler_deps)
 export(tabler_body)
+export(tabler_footer)
 export(tabler_page)
 import(htmltools)
 importFrom(magrittr,"%>%")
