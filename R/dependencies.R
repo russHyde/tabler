@@ -22,7 +22,18 @@ add_tabler_deps <- function(tag) {
     script = "js/bootstrap.bundle.min.js"
   )
 
+  # contains bindings and other JS code
+  tabler_custom_js <- htmlDependency(
+    name = "tabler-bindings",
+    version = "0.1.0",
+    src = "tabler",
+    package = "tabler",
+    script = c(
+      "tabler_tabs_init.js"
+    )
+  )
+
   # below, the order is of critical importance!
-  deps <- list(bs4_deps, tablers_deps)
+  deps <- list(bs4_deps, tablers_deps, tabler_custom_js)
   htmltools::attachDependencies(tag, deps, append = TRUE)
 }
