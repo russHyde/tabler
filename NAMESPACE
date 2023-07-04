@@ -3,6 +3,7 @@
 export("%>%")
 export(add_tabler_deps)
 export(tabler_body)
+export(tabler_card)
 export(tabler_footer)
 export(tabler_navbar)
 export(tabler_navbar_menu)
